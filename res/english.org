@@ -1,0 +1,75 @@
+| English               | Russian            |
+|-----------------------+--------------------|
+| goal                  | цель               |
+| objecticve            | цель               |
+| purpose               | цель               |
+| serve                 | подавать           |
+| arrive                | прибывать          |
+| quantity              | количество         |
+| are going             | собираться         |
+| judge                 | судья              |
+| to acheve goal        | достигнуть цели    |
+| assume                | предполагать       |
+| consider              | считать            |
+| responsible           | ответственный      |
+| establish             | основать           |
+| offer                 | предложить         |
+| plate                 | тарелка            |
+| prevent               | предотвращать      |
+| prepare               | приготовить        |
+| receive               | получить           |
+| reduce                | уменьшить          |
+| decide                | принять            |
+| beat                  | бить               |
+| keep                  | держать            |
+| explain               | объяснять          |
+| coach                 | тренер             |
+| advice                | совет              |
+| demand                | спрос              |
+| insurance             | страховка          |
+| tax                   | налог              |
+| accept                | принимать          |
+| currency              | валюта             |
+| worth                 | ценность           |
+| great deal of respect | большое уважение   |
+| cost                  | стоимость          |
+| advertisement         | реклама            |
+| meeting               | совещание          |
+| check                 | проверка           |
+| up to you             | на твое усмотрение |
+| matter                | вопрос, дело       |
+| traffic lights        | светофоры          |
+| behind                | позади             |
+| manage                | управлять          |
+| took a look           | посмотреть         |
+| personality           | индивидуальность   |
+| in charge             | ответственный      |
+| desire                | желание            |
+| fear                  | страх              |
+| faith                 | вера               |
+| taking care of        | заботиться         |
+| consider              | считать            |
+| paint                 | краска             |
+| occasion              | случай             |
+| price                 | цена               |
+| deliver               | доставить          |
+| advantage             | преимущество       |
+| violence              | преимущество       |
+| threat                | угроза             |
+| powder                | порошок            |
+| oppotunity            | возможность        |
+| dust                  | пыль               |
+| crop                  | урожай             |
+| evidence              | улика              |
+| able man              | способный человек  |
+| blame                 | вина               |
+| comb                  | расческа           |
+| chain                 | цепь               |
+| recenly               | недавно            |
+| unit                  | подразделение      |
+| pain                  | боль               |
+| chest                 | грудь              |
+| fair                  | ярмарка            |
+| staff                 | персонал           |
+| frequent              | частый             |
+| expensive             | дорогой            |

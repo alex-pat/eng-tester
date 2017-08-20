@@ -1,0 +1,81 @@
+| Infinitive | Past Indefinite | Past Participle | Перевод                 |
+|------------+-----------------+-----------------+-------------------------|
+| be         | was, were       | been            | быть, нести, родить     |
+| beat       | beat            | beaten          | бить                    |
+| become     | became          | become          | стать, сделаться        |
+| begin      | began           | begun           | начать                  |
+| blow       | blew            | blown, blowed   | дуть                    |
+| break      | broke           | broken          | ломать                  |
+| bring      | brought         | brought         | принести                |
+| build      | built           | built           | строить                 |
+| burn       | burnt, burned   | burnt, burned   | жечь, гореть            |
+| buy        | bought          | bought          | купить                  |
+| catch      | caught          | caught          | ловить, поймать         |
+| choose     | chose           | chosen          | выбрать                 |
+| come       | came            | come            | прийти                  |
+| cost       | cost            | cost            | стоить                  |
+| cut        | cut             | cut             | резать                  |
+| do         | did             | done            | делать                  |
+| draw       | drew            | drawn           | тащить, рисовать        |
+| dream      | dreamt, dreamed | dreamt, dreamed | грезить, мечтать        |
+| drink      | drank           | drunk           | пить, выпить            |
+| drive      | drove           | driven          | гнать, ехать            |
+| eat        | ate             | eaten           | кушать, есть            |
+| fall       | fell            | fallen          | падать                  |
+| feel       | felt            | felt            | чувствовать             |
+| fight      | fought          | fought          | сражаться, драться      |
+| find       | found           | found           | находить                |
+| fly        | flew            | flown           | летать                  |
+| forget     | forgot          | forgotten       | забыть                  |
+| get        | got             | got             | получить                |
+| give       | gave            | given           | дать                    |
+| go         | went            | gone            | идти, уходить           |
+| grow       | grew            | grown           | расти                   |
+| have       | had             | had             | иметь                   |
+| hear       | heard           | heard           | слушать                 |
+| hide       | hid             | hidden          | прятать(ся)             |
+| hold       | held            | held            | держать                 |
+| keep       | kept            | kept            | хранить                 |
+| know       | knew            | known           | знать                   |
+| lead       | led             | led             | вести                   |
+| learn      | learnt, learned | learnt, learned | учить                   |
+| leave      | left            | left            | оставить                |
+| lend       | lent            | lent            | одолжить                |
+| let        | let             | let             | пустить, дать           |
+| light      | lit, lighted    | lit, lighted    | осветить                |
+| lose       | lost            | lost            | терять                  |
+| make       | made            | made            | делать                  |
+| may        | might           | might           | мочь, иметь возможность |
+| mean       | meant           | meant           | значить, подразумевать  |
+| meet       | met             | met             | встретить               |
+| pay        | paid            | paid            | платить                 |
+| put        | put             | put             | класть                  |
+| read       | read, red       | read, red       | читать                  |
+| ring       | rang            | rung            | звонить                 |
+| run        | ran             | run             | бежать, течь            |
+| say        | said            | said            | говорить, сказать       |
+| see        | saw             | seen            | видеть                  |
+| sell       | sold            | sold            | продавать               |
+| send       | sent            | sent            | послать                 |
+| set        | set             | set             | устанавливать           |
+| shine      | shone, shined   | shone, shined   | светить, сиять          |
+| show       | showed          | shown, showed   | показывать              |
+| shut       | shut            | shut            | закрывать               |
+| sing       | sang            | sung            | петь                    |
+| sit        | sat             | sat             | сидеть                  |
+| sleep      | slept           | slept           | спать                   |
+| speak      | spoke           | spoken          | говорить                |
+| spend      | spent           | spent           | тратить, проводить      |
+| stand      | stood           | stood           | стоять                  |
+| sweep      | swept           | swept           | мести, подметать        |
+| swim       | swam            | swum            | плыть                   |
+| take       | took            | taken           | взять, брать            |
+| teach      | taught          | taught          | учить                   |
+| tell       | told            | told            | рассказывать, сказать   |
+| think      | thought         | thought         | думать                  |
+| throw      | threw           | thrown          | бросить                 |
+| understand | understood      | understood      | понимать                |
+| upset      | upset           | upset           | опрокинуть, огорчить    |
+| win        | won             | won             | выиграть                |
+| work       | worked, wrought | worked, wrought | работать                |
+| write      | wrote           | written         | писать                  |
