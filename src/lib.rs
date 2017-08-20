@@ -18,6 +18,7 @@ impl Word {
 pub struct Context {
     pub header: Word,
     words: Vec<Word>,
+    init_size: usize,
     errors: Vec<Word>,
     randomizer: rand::ThreadRng,
     current_word: Word,
@@ -32,10 +33,12 @@ impl Context {
             Some(line) => Word::new(line),
             None => return Err("Header not found"),
         };
-        let words = lines.skip(1).map(Word::new).collect();
+        let words: Vec<_> = lines.skip(1).map(Word::new).collect();
+        let init_size = words.len();
         let mut context = Context {
             header,
             words,
+            init_size,
             errors: Vec::new(),
             randomizer: rand::thread_rng(),
             current_word: Word(Vec::new()),
@@ -84,16 +87,28 @@ impl Context {
         correct
     }
 
-    pub fn last_error(&self) -> Option<Word> {
-        self.errors.last().map(|w| w.clone())
+    pub fn last_error(&self) -> Option<&Word> {
+        self.errors.last()
     }
 
-    pub fn get_errors(&self) -> Vec<Word> {
-        self.errors.clone()
+    pub fn get_errors(&self) -> &[Word] {
+        &self.errors
     }
 
     pub fn has_next(&self) -> bool {
         self.words.len() > 0
+    }
+
+    pub fn words_count(&self) -> usize {
+        self.init_size
+    }
+
+    pub fn correct_count(&self) -> usize {
+        self.init_size - self.words.len() - 1
+    }
+
+    pub fn answers_count(&self) -> usize {
+        self.correct_count() + self.errors.len()
     }
 }
 

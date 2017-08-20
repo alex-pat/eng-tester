@@ -1,6 +1,7 @@
 extern crate eng_tester;
 
-mod ui;
+mod gui;
+mod cli;
 
 use std::env;
 use std::fs::File;
@@ -21,8 +22,8 @@ fn main() {
     let db = eng_tester::Context::new(file_content);
     let db = db.unwrap_or_else(|err| abort("db building error", err));
     if config.is_gui {
-        ui::run_gui(db);
+        gui::run(db);
     } else {
-        ui::run_cli(db);
+        cli::run(db);
     }
 }
