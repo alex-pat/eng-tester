@@ -1,7 +1,7 @@
+use eng_tester::{Context, Word};
+use std::cmp::max;
 use std::io;
 use std::io::prelude::*;
-use std::cmp::max;
-use eng_tester::{Context, Word};
 
 pub fn run(mut context: Context) {
     let stdin = io::stdin();
@@ -30,29 +30,31 @@ pub fn run(mut context: Context) {
         }
     }
     clear_screen();
-    print_words(&context,
-                context
-                    .get_errors()
-                    .iter()
-                    .map(|x| x)
-                    .collect::<Vec<_>>()
-                    .as_slice());
+    print_words(
+        &context,
+        context
+            .get_errors()
+            .iter()
+            .map(|x| x)
+            .collect::<Vec<_>>()
+            .as_slice(),
+    );
 }
 
 fn print_question(context: &Context) {
-    print!("ENG: {}/{} right answers
+    print!(
+        "ENG: {}/{} right answers
 
     {} : {}
 
     {} ? ",
-           context.correct_count(),
-           context.answers_count(),
-           context.get_guess_form(),
-           context.get_guess(),
-           context.get_check_form());
-    ::std::io::stdout()
-        .flush()
-        .expect("Cannot flush stdout!");
+        context.correct_count(),
+        context.answers_count(),
+        context.get_guess_form(),
+        context.get_guess(),
+        context.get_check_form()
+    );
+    ::std::io::stdout().flush().expect("Cannot flush stdout!");
 }
 
 fn clear_screen() {
@@ -69,7 +71,8 @@ fn wait_enter() {
 
 fn print_intro(context: &Context) {
     clear_screen();
-    println!("
+    println!(
+        "
                 E N G L I S H
     Written by Alexander Pateenok, 2017
     From 450501 with love,
@@ -78,8 +81,9 @@ fn print_intro(context: &Context) {
 
     Press Enter to start (empty string to exit)
     ",
-             context.words_count(),
-             ::env::args().nth(1).expect("Cannot find first arg"));
+        context.words_count(),
+        ::env::args().nth(1).expect("Cannot find first arg")
+    );
 }
 
 fn print_words(context: &Context, words: &[&Word]) {
@@ -89,27 +93,33 @@ fn print_words(context: &Context, words: &[&Word]) {
         .iter()
         .enumerate()
         .map(|(i, f)| {
-                 max(f.chars().count(),
-                     words
-                         .iter()
-                         .map(|w| w.0[i].chars().count())
-                         .max()
-                         .expect("Empty table"))
-             })
+            max(
+                f.chars().count(),
+                words
+                    .iter()
+                    .map(|w| w.0[i].chars().count())
+                    .max()
+                    .expect("Empty table"),
+            )
+        })
         .collect();
     let print_word_line = |word: &Word| {
-        println!("{}",
-                 word.0
-                     .iter()
-                     .enumerate()
-                     .map(|(i, w)| format!("{:1$}", w, lengths[i]))
-                     .collect::<Vec<String>>()
-                     .join(" | "));
+        println!(
+            "{}",
+            word.0
+                .iter()
+                .enumerate()
+                .map(|(i, w)| format!("{:1$}", w, lengths[i]))
+                .collect::<Vec<String>>()
+                .join(" | ")
+        );
     };
     print_word_line(&context.header);
-    println!("{:-<1$}",
-             "",
-             lengths.iter().sum::<usize>() + (lengths.len() - 1) * 3);
+    println!(
+        "{:-<1$}",
+        "",
+        lengths.iter().sum::<usize>() + (lengths.len() - 1) * 3
+    );
     for word in words {
         print_word_line(&word);
     }

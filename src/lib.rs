@@ -1,6 +1,8 @@
 extern crate rand;
 
 use rand::Rng;
+//use std::path::PathBuf;
+//use structopt::StructOpt;
 
 #[derive(Debug, Clone)]
 pub struct Word(pub Vec<String>);
@@ -112,24 +114,3 @@ impl Context {
     }
 }
 
-#[derive(Debug)]
-pub struct Config {
-    pub file_path: String,
-    pub is_gui: bool,
-}
-
-impl Config {
-    pub fn new(mut args: std::env::Args) -> Result<Config, &'static str> {
-        args.next();
-        let file_path = match args.next() {
-            Some(file_path) => file_path,
-            None => return Err("Filename required!"),
-        };
-        let is_gui = match args.next() {
-            Some(ref s) if s == "--gui" => true,
-            Some(_) => return Err("Wrong param"),
-            None => false,
-        };
-        Ok(Config { file_path, is_gui })
-    }
-}
