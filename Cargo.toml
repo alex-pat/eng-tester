@@ -7,5 +7,9 @@ license = "GPL-3.0"
 
 [dependencies]
 rand = "0.4.2"
-cursive = "0.8.1"
 structopt = "0.2.7"
+
+[dependencies.cursive]
+version = "0.8.1"
+default-features = false
+features = ["pancurses-backend"]
