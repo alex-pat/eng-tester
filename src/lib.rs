@@ -1,8 +1,9 @@
+#[macro_use]
+extern crate failure;
 extern crate rand;
 
 use rand::Rng;
-//use std::path::PathBuf;
-//use structopt::StructOpt;
+use failure::Error;
 
 #[derive(Debug, Clone)]
 pub struct Word(pub Vec<String>);
@@ -29,11 +30,11 @@ pub struct Context {
 }
 
 impl Context {
-    pub fn new(raw_table: String) -> Result<Context, &'static str> {
+    pub fn new(raw_table: String) -> Result<Context, Error> {
         let mut lines = raw_table.lines();
         let header = match lines.next() {
             Some(line) => Word::new(line),
-            None => return Err("Header not found"),
+            None => return Err(format_err!("Header not found")),
         };
         let words: Vec<_> = lines.skip(1).map(Word::new).collect();
         let init_size = words.len();

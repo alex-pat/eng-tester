@@ -1,6 +1,7 @@
 #[macro_use]
 extern crate structopt;
 extern crate eng_tester;
+extern crate failure;
 
 mod cli;
 mod gui;
@@ -24,17 +25,18 @@ struct Config {
     pub is_gui: bool,
 }
 
-fn main() {
+fn main() -> Result<(), failure::Error> {
     let config = Config::from_args();
 
-    let mut file = File::open(config.file_path).expect("file opening error");
+    let mut file = File::open(config.file_path)?;
     let mut file_content = String::new();
-    file.read_to_string(&mut file_content).expect("file reading error");
+    file.read_to_string(&mut file_content)?;
 
-    let db = eng_tester::Context::new(file_content).expect("db building error");
+    let db = eng_tester::Context::new(file_content)?;
     if config.is_gui {
         gui::run(db);
     } else {
         cli::run(db);
     }
+    Ok(())
 }
