@@ -25,7 +25,7 @@ struct Config {
     pub is_gui: bool,
 }
 
-fn main() -> Result<(), failure::Error> {
+fn run() -> Result<(), failure::Error> {
     let config = Config::from_args();
 
     let mut file = File::open(config.file_path)?;
@@ -39,4 +39,10 @@ fn main() -> Result<(), failure::Error> {
         cli::run(db);
     }
     Ok(())
+}
+
+fn main() {
+    if let Err(e) = run() {
+        eprintln!("eng_tester: {}", e);
+    }
 }

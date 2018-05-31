@@ -2,8 +2,8 @@
 extern crate failure;
 extern crate rand;
 
-use rand::Rng;
 use failure::Error;
+use rand::Rng;
 
 #[derive(Debug, Clone)]
 pub struct Word(pub Vec<String>);
@@ -114,4 +114,3 @@ impl Context {
         self.correct_count() + self.errors.len()
     }
 }
-
