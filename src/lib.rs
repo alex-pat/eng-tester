@@ -34,9 +34,10 @@ impl Context {
         let mut lines = raw_table.lines();
         let header = match lines.next() {
             Some(line) => Word::new(line),
-            None => return Err(format_err!("Header not found")),
+            None => return Err(format_err!("Empty file")),
         };
         let words: Vec<_> = lines.skip(1).map(Word::new).collect();
+        validate_words(&header, &words)?;
         let init_size = words.len();
         let mut context = Context {
             header,
@@ -112,5 +113,83 @@ impl Context {
 
     pub fn answers_count(&self) -> usize {
         self.correct_count() + self.errors.len()
+    }
+}
+
+fn validate_words(header: &Word, words: &Vec<Word>) -> Result<(), Error> {
+    let headlen = header.0.len();
+
+    if headlen < 2 {
+        return Err(format_err!("Invalid header"));
+    }
+    if words.len() < 1 {
+        return Err(format_err!("Empty table"));
+    }
+    for (n, words) in words.iter().enumerate() {
+        if words.0.len() != headlen {
+            return Err(format_err!("Invalid line #{}", n + 3));
+        }
+    }
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    // Who watches the watchmen?
+    #[test]
+    fn invalid_header() {
+        assert_eq!(
+            "Invalid header",
+            validate_words(&Word::new("Bad header"), &vec![])
+                .err()
+                .unwrap()
+                .cause()
+                .to_string()
+        );
+    }
+
+    #[test]
+    fn empty_table() {
+        assert_eq!(
+            "Empty table",
+            validate_words(&Word::new("|1|2|"), &vec![])
+                .err()
+                .unwrap()
+                .cause()
+                .to_string()
+        );
+    }
+
+    #[test]
+    fn invalid_line() {
+        let head = Word::new("|One|Two|Three|");
+        let words = vec![
+            Word::new("|1st|2nd|3rd|"),
+            Word::new("|1st|2nd|"),
+            Word::new("|1st|"),
+        ];
+
+        assert_eq!(
+            "Invalid line #4",
+            validate_words(&head, &words)
+                .err()
+                .unwrap()
+                .cause()
+                .to_string()
+        );
+    }
+
+    #[test]
+    fn empty_file() {
+        assert_eq!(
+            "Empty file",
+            Context::new(String::new())
+                .err()
+                .unwrap()
+                .cause()
+                .to_string()
+        );
     }
 }
