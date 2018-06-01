@@ -12,3 +12,15 @@ build: false
 test_script:
   - cargo build --verbose
   - cargo test --verbose
+
+cache:
+  - '%USERPROFILE%\.cargo'
+  - target
+
+notifications:
+  - provider: Email
+    to:
+      - pateenoc@gmail.com
+    on_build_success: false
+    on_build_failure: true
+    on_build_status_changed: true
