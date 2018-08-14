@@ -16,11 +16,11 @@ pub fn run(context: ::eng_tester::Context) {
     let submit = move |s: &mut Cursive, input: &str| {
         let mut context = context.borrow_mut();
         if context.check(input) {
-            s.add_layer(Dialog::text("Correct!").button("Next", |sx| sx.pop_layer()));
+            s.add_layer(Dialog::text("Correct!").button("Next", |sx| drop(sx.pop_layer().unwrap())));
         } else {
             s.add_layer(
                 Dialog::text(format!("Wrong!\n{:?}", context.last_error()))
-                    .button("Next", |sx| sx.pop_layer()),
+                    .button("Next", |sx| drop(sx.pop_layer().unwrap())),
             );
         };
         s.call_on_id("guess_form", |view: &mut TextView| {
@@ -35,7 +35,7 @@ pub fn run(context: ::eng_tester::Context) {
         s.call_on_id("check_word", |view: &mut EditView| view.set_content(""));
     };
 
-    let mut siv = Cursive::new();
+    let mut siv = Cursive::default();
     siv.add_layer(
         Dialog::around(
             LinearLayout::horizontal()
@@ -57,7 +57,7 @@ pub fn run(context: ::eng_tester::Context) {
     siv.add_global_callback(Key::F1, |s| {
         s.add_layer(
             Dialog::text("English tester v.0.1.0\nAlexander Pateenok, 2017")
-                .button("Ok", |s| s.pop_layer()),
+                .button("Ok", |s| drop(s.pop_layer().unwrap())),
         )
     });
 

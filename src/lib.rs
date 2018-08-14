@@ -145,7 +145,7 @@ mod tests {
             validate_words(&Word::new("Bad header"), &vec![])
                 .err()
                 .unwrap()
-                .cause()
+                .as_fail()
                 .to_string()
         );
     }
@@ -157,7 +157,7 @@ mod tests {
             validate_words(&Word::new("|1|2|"), &vec![])
                 .err()
                 .unwrap()
-                .cause()
+                .as_fail()
                 .to_string()
         );
     }
@@ -176,7 +176,7 @@ mod tests {
             validate_words(&head, &words)
                 .err()
                 .unwrap()
-                .cause()
+                .as_fail()
                 .to_string()
         );
     }
@@ -188,7 +188,7 @@ mod tests {
             Context::new(String::new())
                 .err()
                 .unwrap()
-                .cause()
+                .as_fail()
                 .to_string()
         );
     }
