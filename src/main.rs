@@ -32,7 +32,7 @@ fn run() -> Result<(), failure::Error> {
     let mut file_content = String::new();
     file.read_to_string(&mut file_content)?;
 
-    let db = eng_tester::Context::new(file_content)?;
+    let db = eng_tester::Context::new(&file_content)?;
     if config.is_gui {
         gui::run(db);
     } else {

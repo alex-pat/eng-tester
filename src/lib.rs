@@ -30,7 +30,7 @@ pub struct Context {
 }
 
 impl Context {
-    pub fn new(raw_table: String) -> Result<Context, Error> {
+    pub fn new(raw_table: &str) -> Result<Context, Error> {
         let mut lines = raw_table.lines();
         let header = match lines.next() {
             Some(line) => Word::new(line),
@@ -100,7 +100,7 @@ impl Context {
     }
 
     pub fn has_next(&self) -> bool {
-        self.words.len() > 0
+        !self.words.is_empty()
     }
 
     pub fn words_count(&self) -> usize {
@@ -116,13 +116,13 @@ impl Context {
     }
 }
 
-fn validate_words(header: &Word, words: &Vec<Word>) -> Result<(), Error> {
+fn validate_words(header: &Word, words: &[Word]) -> Result<(), Error> {
     let headlen = header.0.len();
 
     if headlen < 2 {
         return Err(format_err!("Invalid header"));
     }
-    if words.len() < 1 {
+    if words.is_empty() {
         return Err(format_err!("Empty table"));
     }
     for (n, words) in words.iter().enumerate() {
@@ -185,7 +185,7 @@ mod tests {
     fn empty_file() {
         assert_eq!(
             "Empty file",
-            Context::new(String::new())
+            Context::new("")
                 .err()
                 .unwrap()
                 .as_fail()

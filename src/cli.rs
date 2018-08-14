@@ -35,7 +35,6 @@ pub fn run(mut context: Context) {
         context
             .get_errors()
             .iter()
-            .map(|x| x)
             .collect::<Vec<_>>()
             .as_slice(),
     );
@@ -65,7 +64,7 @@ fn wait_enter() {
     let mut stdin = ::std::io::stdin();
     let mut buff = [0; 1];
     while buff[0] != b'\n' {
-        stdin.read(&mut buff).expect("Stdin error");
+        stdin.read_exact(&mut buff).expect("Stdin error");
     }
 }
 
