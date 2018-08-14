@@ -5,6 +5,9 @@ authors = ["Alexander Pateenok <pateenoc@gmail.com>"]
 description = "Knowledge testing app from org-mode tables"
 license = "GPL-3.0"
 
+[features]
+default = ["cursive"]
+
 [dependencies]
 rand = "0.5.5"
 structopt = "0.2.10"
@@ -14,3 +17,4 @@ failure = "0.1.2"
 version = "0.9.0"
 default-features = false
 features = ["pancurses-backend"]
+optional = true

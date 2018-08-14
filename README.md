@@ -9,11 +9,27 @@ on steroids, with TUI, rewritten in Rust. Tables are placed in `res/` dir.
 ## Building
 
 ```shell
-cargo build --release
+$ cargo build --release
 ```
+
+You can build it without curses feature by adding `--no-default-features`.
 
 ## Usage
 
 ```shell
-target/release/eng-tester <file.org> [--gui]
+$ cargo run -- --help
+eng_tester 0.1.0
+Alexander Pateenok <pateenoc@gmail.com>
+Testing system based on org-mode table files.
+
+USAGE:
+    eng_tester [FLAGS] <file>
+
+FLAGS:
+    -h, --help       Prints help information
+    -g, --gui        gui-mode
+    -V, --version    Prints version information
+
+ARGS:
+    <file>    org-mode file with the table
 ```
