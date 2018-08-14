@@ -48,6 +48,7 @@ fn main() {
 }
 
 #[cfg(feature = "default")]
+#[inline]
 fn do_run(conf: Config, db: Context) {
     if conf.is_gui {
         gui::run(db);
@@ -57,6 +58,7 @@ fn do_run(conf: Config, db: Context) {
 }
 
 #[cfg(not(feature = "default"))]
+#[inline]
 fn do_run(_: Config, db: Context) {
     cli::run(db);
 }
