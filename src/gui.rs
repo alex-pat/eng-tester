@@ -6,7 +6,7 @@ use self::cursive::views::{Dialog, DummyView, EditView, LinearLayout, TextView};
 use self::cursive::Cursive;
 use std::cell::RefCell;
 
-pub fn run(context: ::eng_tester::Context) {
+pub fn run(context: ::org_tester::Context) {
     let gform = context.get_guess_form();
     let cform = context.get_check_form();
     let gword = context.get_guess();
@@ -50,13 +50,13 @@ pub fn run(context: ::eng_tester::Context) {
                         .child(TextView::new(gword).with_id("guess_word"))
                         .child(EditView::new().on_submit(submit).with_id("check_word")),
                 ),
-        ).title("English tester"),
+        ).title("org_tester"),
     );
 
     siv.add_global_callback(Key::Esc, |s| s.quit());
     siv.add_global_callback(Key::F1, |s| {
         s.add_layer(
-            Dialog::text("English tester v.0.1.0\nAlexander Pateenok, 2017")
+            Dialog::text("org_tester v.0.1.0\nAlexander Pateenok, 2017")
                 .button("Ok", |s| drop(s.pop_layer().unwrap())),
         )
     });

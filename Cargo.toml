@@ -1,8 +1,8 @@
 [package]
-name = "eng_tester"
+name = "org_tester"
 version = "0.1.0"
 authors = ["Alexander Pateenok <pateenoc@gmail.com>"]
-description = "Knowledge testing app from org-mode tables"
+description = "Testing app on org-mode tables"
 license = "GPL-3.0"
 
 [features]

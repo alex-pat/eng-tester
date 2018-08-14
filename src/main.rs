@@ -1,6 +1,6 @@
 #[macro_use]
 extern crate structopt;
-extern crate eng_tester;
+extern crate org_tester;
 extern crate failure;
 
 mod cli;
@@ -13,11 +13,11 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::path::PathBuf;
 use structopt::StructOpt;
-use eng_tester::Context;
+use org_tester::Context;
 
 /// Testing system based on org-mode table files.
 #[derive(StructOpt, Debug)]
-#[structopt(name = "eng_tester")]
+#[structopt(name = "org_tester")]
 struct Config {
     /// org-mode file with the table
     #[structopt(name = "file", parse(from_os_str))]
@@ -43,7 +43,7 @@ fn run() -> Result<(), failure::Error> {
 
 fn main() {
     if let Err(e) = run() {
-        eprintln!("eng_tester: {}", e);
+        eprintln!("org_tester: {}", e);
     }
 }
 
