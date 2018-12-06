@@ -32,11 +32,7 @@ pub fn run(mut context: Context) {
     clear_screen();
     print_words(
         &context,
-        context
-            .get_errors()
-            .iter()
-            .collect::<Vec<_>>()
-            .as_slice(),
+        context.get_errors().iter().collect::<Vec<_>>().as_slice(),
     );
 }
 

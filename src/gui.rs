@@ -1,4 +1,4 @@
-extern crate cursive;
+use cursive;
 
 use self::cursive::event::Key;
 use self::cursive::traits::*;
@@ -16,7 +16,9 @@ pub fn run(context: ::org_tester::Context) {
     let submit = move |s: &mut Cursive, input: &str| {
         let mut context = context.borrow_mut();
         if context.check(input) {
-            s.add_layer(Dialog::text("Correct!").button("Next", |sx| drop(sx.pop_layer().unwrap())));
+            s.add_layer(
+                Dialog::text("Correct!").button("Next", |sx| drop(sx.pop_layer().unwrap())),
+            );
         } else {
             s.add_layer(
                 Dialog::text(format!("Wrong!\n{:?}", context.last_error()))
@@ -50,7 +52,8 @@ pub fn run(context: ::org_tester::Context) {
                         .child(TextView::new(gword).with_id("guess_word"))
                         .child(EditView::new().on_submit(submit).with_id("check_word")),
                 ),
-        ).title("org_tester"),
+        )
+        .title("org_tester"),
     );
 
     siv.add_global_callback(Key::Esc, |s| s.quit());

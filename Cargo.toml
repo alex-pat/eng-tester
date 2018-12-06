@@ -10,12 +10,12 @@ edition = "2018"
 default = ["cursive"]
 
 [dependencies]
-rand = "0.5.5"
-structopt = "0.2.10"
-failure = "0.1.2"
+rand = "0.6.1"
+structopt = "0.2.13"
+failure = "0.1.3"
 
 [dependencies.cursive]
-version = "0.9.1"
+version = "0.10.0"
 default-features = false
 features = ["pancurses-backend"]
 optional = true

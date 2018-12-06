@@ -1,6 +1,6 @@
 #[macro_use]
 extern crate failure;
-extern crate rand;
+use rand;
 
 use failure::Error;
 use rand::Rng;
@@ -11,7 +11,8 @@ pub struct Word(pub Vec<String>);
 impl Word {
     fn new(orgline: &str) -> Word {
         let line = &orgline[1..orgline.len() - 1];
-        let forms: Vec<_> = line.split('|')
+        let forms: Vec<_> = line
+            .split('|')
             .map(|raw_form| raw_form.trim().to_string())
             .collect();
         Word(forms)
@@ -23,7 +24,7 @@ pub struct Context {
     words: Vec<Word>,
     init_size: usize,
     errors: Vec<Word>,
-    randomizer: rand::ThreadRng,
+    randomizer: rand::rngs::ThreadRng,
     current_word: Word,
     guess_form: usize,
     check_form: usize,
@@ -185,11 +186,7 @@ mod tests {
     fn empty_file() {
         assert_eq!(
             "Empty file",
-            Context::new("")
-                .err()
-                .unwrap()
-                .as_fail()
-                .to_string()
+            Context::new("").err().unwrap().as_fail().to_string()
         );
     }
 }

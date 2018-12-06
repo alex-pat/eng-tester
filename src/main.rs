@@ -1,17 +1,14 @@
-extern crate structopt;
-extern crate org_tester;
-extern crate failure;
+use failure;
+use org_tester::Context;
+use std::fs::File;
+use std::io::prelude::*;
+use std::path::PathBuf;
+use structopt::StructOpt;
 
 mod cli;
 
 #[cfg(feature = "default")]
 mod gui;
-
-use std::fs::File;
-use std::io::prelude::*;
-use std::path::PathBuf;
-use structopt::StructOpt;
-use org_tester::Context;
 
 /// Testing system based on org-mode table files.
 #[derive(StructOpt, Debug)]
