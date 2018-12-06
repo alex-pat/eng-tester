@@ -81,8 +81,8 @@ impl Context {
         self.current_word.0[self.guess_form].clone()
     }
 
-    pub fn check(&mut self, try: &str) -> bool {
-        let correct = self.current_word.0[self.check_form].contains(try);
+    pub fn check(&mut self, candidate: &str) -> bool {
+        let correct = self.current_word.0[self.check_form].contains(candidate);
         if !correct {
             self.words.push(self.current_word.clone());
             self.errors.push(self.current_word.clone());

@@ -1,4 +1,3 @@
-#[macro_use]
 extern crate structopt;
 extern crate org_tester;
 extern crate failure;
@@ -8,7 +7,6 @@ mod cli;
 #[cfg(feature = "default")]
 mod gui;
 
-use std::env;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::PathBuf;

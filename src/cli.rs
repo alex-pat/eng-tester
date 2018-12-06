@@ -16,11 +16,11 @@ pub fn run(mut context: Context) {
             eprintln!("Input error! {}", e);
             break;
         }
-        let try = input.trim();
-        if try.is_empty() {
+        let candidate = input.trim();
+        if candidate.is_empty() {
             break;
         }
-        if context.check(&try) {
+        if context.check(&candidate) {
             println!("Yes!");
         } else {
             println!("No!");
@@ -81,7 +81,7 @@ fn print_intro(context: &Context) {
     Press Enter to start (empty string to exit)
     ",
         context.words_count(),
-        ::env::args().nth(1).expect("Cannot find first arg")
+        std::env::args().nth(1).expect("Cannot find first arg")
     );
 }
 
